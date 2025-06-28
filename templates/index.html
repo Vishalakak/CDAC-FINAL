@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width , initial-scale=1.0">
+    <title>Smart Manufacturing Machines Efficiency Prediction</title> 
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color:rgb(201, 224, 240);
+            background-image: url('https://www.shutterstock.com/shutterstock/photos/2235931143/display_1500/stock-photo-big-data-technology-and-data-science-data-scientist-querying-analysing-and-visualizing-complex-2235931143.jpg');
+            margin: 0;
+            height: 100vh;
+            background-size: cover;
+            animation: scrollBackground 30s linear infinite;
+            padding: 20px;
+            color: #333;
+        }
+        @keyframes scrollBackground {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: -1000px 0;
+            }
+        }
+        h1 {
+            text-align: center;
+            color:rgb(214, 210, 210);
+        }
+
+        .form-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 25px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(133, 56, 56, 0.1);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 columns */
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: #34495e;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        .submit-btn {
+            display: block;
+            margin: 30px auto 0 auto;
+            padding: 12px 30px;
+            background-color: #3498db;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #2980b9;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 25px;
+            color:rgb(212, 16, 16);
+        }
+
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Smart Manufacturing Machines Efficiency Prediction</h1>
+
+    <form method="post" class="form-container">
+        <div class="form-grid">
+            {% for feature in features %}
+            <div class="form-group">
+                <label for="{{ feature }}">{{ feature }}:</label>
+                <input type="text" name="{{ feature }}" placeholder="{{ placeholders[feature] }}" required>
+
+            </div>
+            {% endfor %}
+        </div>
+
+        <button type="submit" class="submit-btn">PREDICT</button>
+    </form>
+
+    {% if prediction %}
+        <h2>Prediction : {{ prediction }}</h2>
+    {% endif %}
+</body>
+
+</html>
